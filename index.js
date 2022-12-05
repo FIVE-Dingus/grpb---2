@@ -2,8 +2,12 @@ const express = require("express");
 const dbo = require("./db/db");
 const app = express();
 const port = 4444;
+const bodyParser = require('body-parser');
+const jsonParser = bodyParser.json();
 
 dbo.connectToServer();
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.listen(port, function () {
     console.log(`App listening on port ${port}!`);
@@ -23,10 +27,14 @@ app.get("/pokemon", function (req, res) {
         } else {
           res.json(result);
         }
-      });
-      /*
-      Bref lisez la doc, 
-      il y a plein de manières de faire ce qu'on veut :) 
-      */
-      
+      });      
   });
+app.post('/pokemon', jsonParser, (req, res) => {
+    const body = req.body;
+    console.log('Got body:', body);
+    const dbConnect = dbo.getDb();
+    dbConnect
+      .collection("pokemon")
+      .insertOne("name");
+    res.json(body);
+});
