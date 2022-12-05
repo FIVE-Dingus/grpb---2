@@ -3,6 +3,7 @@ const dbo = require("./db/db");
 const app = express();
 const port = 4444;
 const bodyParser = require('body-parser');
+const db = require("./db/db");
 const jsonParser = bodyParser.json();
 
 dbo.connectToServer();
@@ -35,6 +36,6 @@ app.post('/pokemon', jsonParser, (req, res) => {
     const dbConnect = dbo.getDb();
     dbConnect
       .collection("pokemon")
-      .insertOne("name");
+      db.collection.insertOne({name: ''});
     res.json(body);
 });
