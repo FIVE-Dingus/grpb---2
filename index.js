@@ -37,5 +37,11 @@ app.post('/pokemon', jsonParser, (req, res) => {
     dbConnect
       .collection("pokemon")
       .insert({...body});
+      .then(result,err) {
+        if (err) {
+          res.status(400).send("Error fetching pokemons!");
+        } else {
+          res.json(result);
+        }}
     res.json(body);
 });
