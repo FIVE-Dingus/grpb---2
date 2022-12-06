@@ -36,6 +36,6 @@ app.post('/pokemon', jsonParser, (req, res) => {
     const dbConnect = dbo.getDb();
     dbConnect
       .collection("pokemon")
-      db.collection.insertOne({name: ''});
+      .insert({...body});
     res.json(body);
 });
