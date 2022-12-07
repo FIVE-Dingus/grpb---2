@@ -152,7 +152,7 @@ app.post('/pokemon/update', jsonParser,(req, res) => {
     { 
       $set: { 
         name: body.newname,
-        type1:body.type,
+        type1:body.type1,
         type2:body.type2
       },
     }
