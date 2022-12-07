@@ -1,4 +1,6 @@
-function pokédex():
+function Pokedex(pokemon) {
+    theObject.make = 'Toyota';
+};
 
 
-export pokédex
+export {Pokedex};
