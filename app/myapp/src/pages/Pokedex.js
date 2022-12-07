@@ -1,0 +1,4 @@
+function pokédex():
+
+
+export pokédex
