@@ -205,21 +205,3 @@ app.post('/types/update', jsonParser,(req, res) => {
     }
   })
 })
-
-// app.post('/pokemon/type', jsonParser,(req, res) => {
-//   const body = req.body;
-//   console.log('Got body:', body);
-//   const dbConnect = dbo.getDb();
-//   dbConnect.collection("pokemon").updateOne(
-//     { name: body.name },
-//     { 
-//       $set: { type: body. },
-//     }
-//   ).then(function(result, err){
-//     if (err) {
-//       res.status(400).send(err.message);
-//     } else {
-//       res.json(result);
-//     }
-//   })
-// })
