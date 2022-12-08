@@ -1,5 +1,4 @@
 function Acceuil(pokemon) {
-    theObject.make = 'Toyota';
 };
 
 

@@ -1,5 +1,11 @@
+import "./css/Capture.css";
+
 function Capture(pokemon) {
-    theObject.make = 'Toyota';
+
+
+    return <div className="Capture">
+        <img href="../public/image/039.jpg"></img>
+    </div>;
 };
 
 
