@@ -5,11 +5,13 @@ const port = 4444;
 const bodyParser = require('body-parser');
 const db = require("./db/db");
 const jsonParser = bodyParser.json();
+var cors = require('cors')
 
 dbo.connectToServer();
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.json()) // parse json body content
+app.use(express.json())
+app.use(cors())
 
 app.listen(port, function () {
     console.log(`App listening on port ${port}!`);

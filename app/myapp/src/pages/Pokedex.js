@@ -1,5 +1,5 @@
 function Pokedex(pokemon) {
-    theObject.make = 'Toyota';
+
 };
 
 

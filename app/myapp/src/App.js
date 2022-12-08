@@ -1,10 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Acceuil } from './pages/acceuil';
-import { Pokedex } from './pages/pokedex';
-import { Capture } from './pages/capture';
-import { Pokeinfo } from './pages/pokeinfo';
+import { Acceuil } from './pages/Acceuil';
+import { Pokedex } from './pages/Pokedex';
+import { Capture } from './pages/Capture';
+import Pokeinfo from './pages/Pokeinfo';
 
 function App() {
   return (
