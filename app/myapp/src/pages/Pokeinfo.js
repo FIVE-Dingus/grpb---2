@@ -49,7 +49,7 @@ function Pokeinfo() {
                                         <img className="normal" src={pokemon.sprites.normal} alt="sprite de {pokemon.name}"/>
                                         </Col>
                                         <Col xs={4} md={4} lg={4}>
-                                            {pokedex.name=pokemon.name?<Button className="bouttonCap" onClick={()=>PokeCapture(pokemon)}>Capturé ce Pokemon d'extreme qualité</Button>:null}
+                                            {pokedex.find(pok=>pok.name===pokemon.name)?null:<Button className="bouttonCap" onClick={()=>PokeCapture(pokemon)}>Capturé ce Pokemon d'extreme qualité</Button>}
                                             <h3>Type:{pokemon.type1?pokemon.type1.name:null},{pokemon.type2?pokemon.type2.name:null}</h3>
                                         </Col>
                                         <Col xs={4} md={4} lg={4}>

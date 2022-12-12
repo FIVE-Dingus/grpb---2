@@ -5,12 +5,21 @@ import Capture from './pages/Capture';
 import Pokeinfo from './pages/Pokeinfo';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
+import {
+  Link
+} from "react-router-dom";
 
 function App() {
-  return <div className='yolo'>
-    <h1>wtf</h1>
-    <Button href="http://loc:3000/Pokeinfo">Link</Button>
+  return <div className='yolo'>   
     <Router>
+      <nav>
+        <ul>
+            <li><Link to="/Pokedex">Pokedex</Link></li>
+            <li><Link to="/Capture">Capture</Link></li>
+            <li><Link to="/Pokeinfo">Pokeinfo</Link></li>
+            <li><Link to="/PokeGestion">PokeGestion</Link></li>
+        </ul>
+      </nav> 
       <Switch>
           <Route path="/Pokedex">
             <Pokedex />
