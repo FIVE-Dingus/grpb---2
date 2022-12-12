@@ -123,9 +123,11 @@ app.delete('/pokedex', jsonParser, (req, res) => {
         res.status(400).send(err.message);
       } else {
         res.json(result);
+        res.catch(function(res){ console.log(res) });
       }
     });    
   res.status(200).json('Product deleted');
+  
 })
 
 app.delete('/types', jsonParser, (req, res) => {

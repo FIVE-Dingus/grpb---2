@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import {
   Link
 } from "react-router-dom";
+import { PokeGestion } from './pages/PokeGestion';
 
 function App() {
   return <div className='yolo'>   
@@ -29,6 +30,9 @@ function App() {
           </Route>
           <Route path="/Pokeinfo">
             <Pokeinfo />
+          </Route>
+          <Route path="/PokeGestion">
+            <PokeGestion />
           </Route>
       </Switch>
     </Router>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getPokedex } from "../api/GetPokedex";
+import { GetPokedex } from "../api/GetPokedex";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -8,7 +8,7 @@ function Pokedex() {
     const [ pokemons, setPokemons ] = useState([]);
     
     useEffect(() => {
-        const pokemonsFetched = getPokedex();
+        const pokemonsFetched = GetPokedex();
         pokemonsFetched
             .then(result => setPokemons(result))
             .catch(error=>console.error("Erreur avec notre API :",error.message));

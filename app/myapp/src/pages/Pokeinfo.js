@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { Capture } from "../api/Pokemon";
-import { getPokedex } from "../api/GetPokedex";
+import { GetPokedex } from "../api/GetPokedex";
 
 function Pokeinfo() {
     const [ pokemons, setPokemons ] = useState([]);
@@ -27,7 +27,7 @@ function Pokeinfo() {
     const [ pokedex, setPokedex ] = useState([]);
     
     useEffect(() => {
-        const pokemonsFetched = getPokedex();
+        const pokemonsFetched = GetPokedex();
         pokemonsFetched
             .then(lol => setPokedex(lol))
             .catch(erreur=>console.erreur("Erreur avec notre API :",erreur.message));});

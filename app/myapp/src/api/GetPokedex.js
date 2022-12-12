@@ -1,4 +1,4 @@
-export const getPokedex = async () => {
+export const GetPokedex = async () => {
     const response = await fetch(
         'http://localhost:4444/Pokedex', {
             method: 'GET', 

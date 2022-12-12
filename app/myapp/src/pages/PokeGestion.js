@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-import { getAll } from "../api/Pokemon";
+import { GetPokedex } from "../api/GetPokedex";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import { PokeDelete } from "../api/Pokemon";
+import { Delete } from "../api/PokeDelete";
 
 function PokeGestion() {
     const [ pokemons, setPokemons ] = useState([]);
     
     useEffect(() => {
-        const pokemonsFetched = getAll();
+        const pokemonsFetched = GetPokedex();
         pokemonsFetched
             .then(result => setPokemons(result))
             .catch(error=>console.error("Erreur avec notre API :",error.message));
@@ -20,31 +20,31 @@ function PokeGestion() {
         
         
         
-        return PokeDelete(pokemon)
+        return Delete(pokemon)
     };
 
-    return <div className="pokemon-list bg-dark text-white text-center fs-1">
+    return <div className="pokedex bg-dark text-white text-center fs-1">
         <Container>
             <Row>
-                <Col xs={0} md={2} lg={2} >
+                <Col xs={2}>
                 </Col>
-                <Col xs={12} md={8} lg={8}>
-                    <div className="flex"><h1>LISTE DES POKEMONS</h1>
+                <Col xs={8}>
+                    <div className="flex"><h1>LISTE DE VOS POKEMON D'EXTREME QUALITE</h1>
                     {
                         pokemons.map((pokemon,key) =>{
                             return <div key={key} className="bloc-pokemon">
                                 <Container>
-                                    <Row className="PokeGestion">
+                                <Row className="Pokeinfo">
                                         <h2>{pokemon.name}</h2>
                                         <Col xs={4} md={4} lg={4}>
-                                        <img className="normal" src={pokemon.sprites.normal} alt="sprite de {pokemon.name}"/>
+                                        <img className="normal" src={pokemon.sprites.normal} alt="sprite de {pokedex.name}"/>
                                         </Col>
                                         <Col xs={4} md={4} lg={4}>
-                                            <Button className="bouttonCap" onClick={()=>PokeDelete(pokemon)}>Supprimer le Pokemon</Button>
+                                            <Button className="bouttonCap" onClick={()=>PokeDelete(pokemon)}>Capturé ce Pokemon d'extreme qualité</Button>
                                             <h3>Type:{pokemon.type1?pokemon.type1.name:null},{pokemon.type2?pokemon.type2.name:null}</h3>
                                         </Col>
                                         <Col xs={4} md={4} lg={4}>
-                                        <img className="animated" src={pokemon.sprites.animated} alt="sprite animé de {pokemon.name}"/>
+                                        <img className="animated" src={pokemon.sprites.animated} alt="sprite animé de {pokedex.name}"/>
                                         </Col>
                                     </Row>
                                 </Container>
@@ -53,7 +53,7 @@ function PokeGestion() {
                     }
                     </div>
                 </Col>
-                <Col xs={0} md={2} lg={2}>
+                <Col xs={2}>
                 </Col>
             </Row>
         </Container>      
@@ -61,4 +61,4 @@ function PokeGestion() {
 };
 
 
-export default PokeGestion;
+export {PokeGestion};
