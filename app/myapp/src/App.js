@@ -13,7 +13,7 @@ function App() {
   return <div className='yolo'>   
     <Router>
       <nav>
-        <ul list-style-type:none>
+        <ul className='lolo'>
             <li><Link to="/Pokedex">Pokedex</Link></li>
             <li><Link to="/Capture">Capture</Link></li>
             <li><Link to="/Pokeinfo">Pokeinfo</Link></li>
