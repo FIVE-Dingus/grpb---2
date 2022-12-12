@@ -1,19 +1,17 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Acceuil } from './pages/Acceuil';
 import { Pokedex } from './pages/Pokedex';
-import { Capture } from './pages/Capture';
+import Capture from './pages/Capture';
 import Pokeinfo from './pages/Pokeinfo';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
 
 function App() {
-  return (
+  return <div className='yolo'>
+    <h1>wtf</h1>
+    <Button href="http://loc:3000/Pokeinfo">Link</Button>
     <Router>
       <Switch>
-          <Route exact path="/Acceuil">
-            <div className="Acceuil"></div>
-            <Acceuil /> 
-          </Route>
           <Route path="/Pokedex">
             <Pokedex />
           </Route>
@@ -25,7 +23,7 @@ function App() {
           </Route>
       </Switch>
     </Router>
-  );
+  </div>;
 }
 
 export default App;

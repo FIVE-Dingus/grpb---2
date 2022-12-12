@@ -1,16 +1,17 @@
-
-
-
-
 .Acceuil{
     background-image: url(../public/image/pokemon.jpg)!important;
 }
 
-.Capture{
-    background-image: url(../public/image/039.jpg)!important;
+.Capture img{
+    width: 100%;
+}
+.normal{
+    width: 100%;
+}
+.animated{
+    width: 70%;
+}
+.bouttonCap{
     width: 100%;
 }
 
-Row{
-    align-items: center;
-}
