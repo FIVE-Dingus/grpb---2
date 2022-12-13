@@ -14,11 +14,34 @@
 .bouttonCap{
     width: 100%;
 }
+.PokeGestion{
+    display: flex;
+    justify-content: space-between;
+}
 
 .pokedex{
     background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
 }
-.lolo{
+.navebare{
+    background: #000;
+    
+}
+.list{
     list-style-type: none;
-
+    display: flex;
+    justify-content: space-around;
+}
+.Acceuil{
+    background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
+}
+.backgroundbg{
+    background-color: moccasin;
+    min-height: 100vh;
+}
+.starter{
+    text-align: center;
+}
+.imgpoke1{
+    margin-top: 50%;
+    width: 80%;
 }

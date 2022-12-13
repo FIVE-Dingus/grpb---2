@@ -1,19 +1,33 @@
-export const Delete = async (pokemon) => {
-    const response = await fetch(
-        'http://localhost:4444/Pokedex', {
-                headers: {
-                  'Accept': 'application/json',
-                  'Content-Type': 'application/json'
-                },
-                method: "DELETE",
-                body: JSON.stringify(pokemon)
-                
-            })
-            .then(function(res){ console.log(res) })
-            .catch(function(res){ console.log(res) })
-    
+export const DeletePokemon = async (pokemon) => {
+  const response = await fetch(
+    'http://localhost:4444/pokemon', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "DELETE",
+      body: JSON.stringify(pokemon)
+    })
+    console.log("ok",response);    
     
     const pokemons = await response.json()
     return pokemons
+}
+
+export const DeletePokedex = async (pokedex) => {
+  const response = await fetch(
+    'http://localhost:4444/pokedex', {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: "DELETE",
+        body: JSON.stringify(pokedex)
+        
+  })
+
+  console.log("ok",response);
+  const pokemons = await response.json()
+  return pokemons
 }
     

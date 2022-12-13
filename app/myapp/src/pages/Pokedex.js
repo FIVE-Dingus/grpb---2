@@ -1,18 +1,34 @@
 import { useEffect, useState } from "react";
-import { GetPokedex } from "../api/GetPokedex";
+import { GetPokedex, UpdatePokedex } from "../api/GetPokedex";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { DeletePokedex } from "../api/PokeDelete";
+import Button from 'react-bootstrap/Button';
 
 function Pokedex() {
-    const [ pokemons, setPokemons ] = useState([]);
+    const [ pokedexs, setPokedexs ] = useState([]);
+    const [ count, setCount ] = useState(0);
     
     useEffect(() => {
-        const pokemonsFetched = GetPokedex();
-        pokemonsFetched
-            .then(result => setPokemons(result))
+        const pokedexsFetched = GetPokedex();
+        pokedexsFetched
+            .then(result => setPokedexs(result))
             .catch(error=>console.error("Erreur avec notre API :",error.message));
-    },[]);
+    },[count]);
+
+    const PokeDelete = (pokedex) => {
+        
+        
+        setCount(count+10);
+        return DeletePokedex(pokedex)
+    };
+    const PokedexUpdate = (pokedex) => {
+        
+        
+        setCount(count+10);
+        return UpdatePokedex(pokedex)
+    };
     return <div className="pokedex bg-dark text-white text-center fs-1">
         <Container>
             <Row>
@@ -21,19 +37,20 @@ function Pokedex() {
                 <Col xs={8}>
                     <div className="flex"><h1>LISTE DE VOS POKEMON D'EXTREME QUALITE</h1>
                     {
-                        pokemons.map((pokemon,key) =>{
-                            return <div key={key} className="bloc-pokemon">
+                        pokedexs.map((pokedex,key) =>{
+                            return <div key={key} className="bloc-pokedex">
                                 <Container>
                                 <Row className="Pokeinfo">
-                                        <h2>{pokemon.name}</h2>
+                                        <h2>{pokedex.name}</h2>
                                         <Col xs={4} md={4} lg={4}>
-                                        <img className="normal" src={pokemon.sprites.normal} alt="sprite de {pokedex.name}"/>
+                                        <img className="normal" src={pokedex.sprites.normal} alt="sprite de {pokedex.name}"/>
                                         </Col>
                                         <Col xs={4} md={4} lg={4}>
-                                            <h3>Type:{pokemon.type1?pokemon.type1.name:null},{pokemon.type2?pokemon.type2.name:null}</h3>
+                                            <Button className="bouttonCap" onClick={()=>PokeDelete(pokedex)}>Supprimer ce pokemon d'extreme nulité</Button>
+                                            <h3>Type:{pokedex.type1?pokedex.type1.name:null},{pokedex.type2?pokedex.type2.name:null}</h3>
                                         </Col>
                                         <Col xs={4} md={4} lg={4}>
-                                        <img className="animated" src={pokemon.sprites.animated} alt="sprite animé de {pokedex.name}"/>
+                                        <img className="animated" src={pokedex.sprites.animated} alt="sprite animé de {pokedex.name}"/>
                                         </Col>
                                     </Row>
                                 </Container>
