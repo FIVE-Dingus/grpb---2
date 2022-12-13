@@ -72,7 +72,14 @@ app.post('/pokemon/insert', jsonParser, (req, res) => {
     dbConnect
       .collection("pokemon")
       .insert({...body})
-    res.json(body);
+      .then(function (result, err) {
+        if (err) {
+          res.status(400).send(err.message);
+        } else {
+          res.json(result);
+        }
+      })
+      .catch((err)=>res.json(err));
 });
 
 app.post('/pokedex/insert', jsonParser, (req, res) => {
@@ -82,7 +89,14 @@ app.post('/pokedex/insert', jsonParser, (req, res) => {
   dbConnect
     .collection("pokedex")
     .insert({...body})
-  res.json(body);
+    .then(function (result, err) {
+      if (err) {
+        res.status(400).send(err.message);
+      } else {
+        res.json(result);
+      }
+    })
+    .catch((err)=>res.json(err));
 });
 
 app.post('/types/insert', jsonParser, (req, res) => {
@@ -92,7 +106,14 @@ app.post('/types/insert', jsonParser, (req, res) => {
   dbConnect
     .collection("types")
     .insert({...body})
-  res.json(body);
+    .then(function (result, err) {
+      if (err) {
+        res.status(400).send(err.message);
+      } else {
+        res.json(result);
+      }
+    })
+    .catch((err)=>res.json(err));
 });
 
 app.delete('/pokemon', jsonParser, (req, res) => {
@@ -108,8 +129,8 @@ app.delete('/pokemon', jsonParser, (req, res) => {
       } else {
         res.json(result);
       }
-    });    
-  res.status(200).json('Product deleted');
+    })
+    .catch((err)=>res.json(err));    
 })
 app.delete('/pokedex', jsonParser, (req, res) => {
   const body = req.body;
@@ -123,11 +144,9 @@ app.delete('/pokedex', jsonParser, (req, res) => {
         res.status(400).send(err.message);
       } else {
         res.json(result);
-        res.catch(function(res){ console.log(res) });
       }
-    });    
-  res.status(200).json('Product deleted');
-  
+    })
+    .catch((err)=>res.json(err));
 })
 
 app.delete('/types', jsonParser, (req, res) => {
@@ -143,8 +162,8 @@ app.delete('/types', jsonParser, (req, res) => {
       } else {
         res.json(result);
       }
-    });    
-  res.status(200).json('Product deleted');
+    })
+    .catch((err)=>res.json(err));  
 })
 
 app.post('/pokemon/update', jsonParser,(req, res) => {
@@ -167,6 +186,7 @@ app.post('/pokemon/update', jsonParser,(req, res) => {
       res.json(result);
     }
   })
+  .catch((err)=>res.json(err));
 })
 app.post('/pokedex/update', jsonParser,(req, res) => {
   const body = req.body;
@@ -188,6 +208,7 @@ app.post('/pokedex/update', jsonParser,(req, res) => {
       res.json(result);
     }
   })
+  .catch((err)=>res.json(err));
 })
 
 app.post('/types/update', jsonParser,(req, res) => {
@@ -208,4 +229,5 @@ app.post('/types/update', jsonParser,(req, res) => {
       res.json(result);
     }
   })
+  .catch((err)=>res.json(err));
 })
