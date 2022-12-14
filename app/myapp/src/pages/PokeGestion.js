@@ -58,7 +58,7 @@ function PokeGestion() {
                                                 </Col>
                                                 <Col xs={4} md={4} lg={4}>
                                                     <Button className="bouttonCap" onClick={()=>PokedexDelete(pokedex)}>Supprimer ce pokemon d'extreme nulité</Button>
-                                                    {PokedexUpdate()}
+                                                    <PokedexUpdate />
                                                     <h3>Type:{pokedex.type1?pokedex.type1.name:null},{pokedex.type2?pokedex.type2.name:null}</h3>
                                                 </Col>
                                                 <Col xs={4} md={4} lg={4}>

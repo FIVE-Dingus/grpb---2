@@ -20,7 +20,7 @@ export const UpdatePokedex = async (data) => {
           'Content-Type': 'application/json'
         },
         method: "POST",
-         body: JSON.stringify(data)
+        body: JSON.stringify(data)
     })    
     
     const pokemons = await response.json()
