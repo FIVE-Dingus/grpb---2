@@ -66,6 +66,7 @@ app.get("/pokemon", function (req, res) {
       });      
   });
 app.post('/pokemon/insert', jsonParser, (req, res) => {
+  console.log(req.body);
     const body = req.body;
     console.log('Got body:', body);
     const dbConnect = dbo.getDb();
@@ -174,8 +175,10 @@ app.post('/pokemon/update', jsonParser,(req, res) => {
     { 
       $set: { 
         name: body.newname,
-        type1:body.type1,
-        type2:body.type2
+        type1:{id:body.type1.id,
+          name:body.type1.name},
+        type2:{ id:body.type2.id,
+           name:body.type2.name}
       },
     }
   ).then(function(result, err){
@@ -195,9 +198,11 @@ app.post('/pokedex/update', jsonParser,(req, res) => {
     { name: body.name },
     {
       $set: { 
-        newname: body.newname,
-        type1:body.type1,
-        type2:body.type2
+        name: body.newname,
+        type1:{id:body.type1.id,
+               name:body.type1.name},
+        type2:{ id:body.type2.id,
+                name:body.type2.name}
       },
     }
   ).then(function(result, err){

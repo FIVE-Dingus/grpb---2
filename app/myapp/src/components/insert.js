@@ -6,13 +6,11 @@ export function Creator12000() {
     const onSubmit = (data) => {
         console.log(data);
         data = {
-            ...data,
-            sprites:{
-                normal:data.sprites,
-                animated:data.sprites,
-            }
+          ...data,
+          sprites: {
+            normal: data["sprites"]
+          }
         }
-        delete(sprites)
         Create(data);
     }
   

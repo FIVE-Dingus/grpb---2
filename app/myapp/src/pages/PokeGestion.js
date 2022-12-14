@@ -15,7 +15,7 @@ function PokeGestion() {
     const [ count, setCount ] = useState(0);
     
     useEffect(() => {
-        console.log("useeffect");
+        console.log("useffect");
         const pokedexFetched = GetPokedex();
         pokedexFetched
             .then(result => setPokedex(result))
@@ -32,10 +32,7 @@ function PokeGestion() {
         setCount(count+1);
     };
 
-    const PokedexDelete = (pokedex) => {
-        DeletePokedex(pokedex);
-        setCount(count+1);
-    };
+    
 
     return <div className="pokedex bg-dark text-white text-center fs-1">
         <Container className="PokeGestion">
@@ -57,15 +54,15 @@ function PokeGestion() {
                                                 <img className="normal" src={pokedex.sprites.normal} alt="sprite de {pokedex.name}"/>
                                                 </Col>
                                                 <Col xs={4} md={4} lg={4}>
-                                                    <Button className="bouttonCap" onClick={()=>PokedexDelete(pokedex)}>Supprimer ce pokemon d'extreme nulité</Button>
                                                     <PokedexUpdate />
-                                                    <h3>Type:{pokedex.type1?pokedex.type1.name:null},{pokedex.type2?pokedex.type2.name:null}</h3>
                                                 </Col>
                                                 <Col xs={4} md={4} lg={4}>
-                                                <img className="animated" src={pokedex.sprites.animated} alt="sprite animé de {pokedex.name}"/>
-                                                </Col>
-                                            </Row>
-                                        </Container>
+                                                    <img className="animated" src={pokedex.sprites.animated} alt="sprite animé de {pokedex.name}"/>
+                                                    </Col>
+                                                </Row>
+                                            </Container>
+                                                
+                                        
                                     </div>
                                 })
                             }

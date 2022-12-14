@@ -42,11 +42,12 @@ export const getStarter = async () => {
 }
 
 export const Create = async (pokemon) => {
+    console.log(pokemon);
     const response = await fetch(
         'http://localhost:4444/Pokemon/insert', {
                 headers: {
                   'Accept': 'application/json',
-                  'Content-Type': 'monlication/json'
+                  'Content-Type': 'application/json'
                 },
                 method: "POST",
                 body: JSON.stringify(pokemon)
