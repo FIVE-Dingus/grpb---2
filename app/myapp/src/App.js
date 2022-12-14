@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button  from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
 import PokeGestion from './pages/PokeGestion';
+import Creator from './pages/Creator';
 
 function App() {
   return <div className='navebare'>   
@@ -17,6 +18,7 @@ function App() {
           <li><Link className='text-white' to="/pokedex">Pokedex</Link></li>
           <li><Link className='text-white' to="/pokeinfo">Pokeinfo</Link></li>
           <li><Link className='text-white' to="/pokegestion">PokeGestion</Link></li>
+          <li><Link className='text-white' to="/creator2000">Creator</Link></li>
         </ul>
       </nav> 
       <Switch>
@@ -31,6 +33,9 @@ function App() {
           </Route>
           <Route path="/pokegestion">
             <PokeGestion />
+          </Route>
+          <Route path="/creator2000">
+            <Creator />
           </Route>
       </Switch>
     </Router>

@@ -6,7 +6,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { DeletePokemon , DeletePokedex} from "../api/PokeDelete";
-import { useForm } from 'react-hook-form';
+import { PokedexUpdate } from "../components/update";
+
 
 function PokeGestion() {
     const [ pokedex, setPokedex ] = useState([]);
@@ -35,13 +36,6 @@ function PokeGestion() {
         DeletePokedex(pokedex);
         setCount(count+1);
     };
-    const { register, handleSubmit } = useForm();
-    const onSubmit = (data) => {
-        console.log(data);
-        /*Coder ici pour préparer l'appel réseau POST avec FETCH !*/
-        //On peut transformer les données en JSON pour les envoyer dans notre appel
-        //JSON.stringify(data);
-    };
 
     return <div className="pokedex bg-dark text-white text-center fs-1">
         <Container className="PokeGestion">
@@ -63,7 +57,8 @@ function PokeGestion() {
                                                 <img className="normal" src={pokedex.sprites.normal} alt="sprite de {pokedex.name}"/>
                                                 </Col>
                                                 <Col xs={4} md={4} lg={4}>
-                                                    <Button className="bouttonCap" onClick={()=>PokedexDelete(pokedex)}>Supprimer ce pokemon d'extreme nulité</Button>         
+                                                    <Button className="bouttonCap" onClick={()=>PokedexDelete(pokedex)}>Supprimer ce pokemon d'extreme nulité</Button>
+                                                    {PokedexUpdate()}
                                                     <h3>Type:{pokedex.type1?pokedex.type1.name:null},{pokedex.type2?pokedex.type2.name:null}</h3>
                                                 </Col>
                                                 <Col xs={4} md={4} lg={4}>

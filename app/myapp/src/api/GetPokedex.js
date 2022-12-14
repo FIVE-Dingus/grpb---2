@@ -12,7 +12,7 @@ export const GetPokedex = async () => {
     return pokemons
 }
 
-export const UpdatePokedex = async (pokedex) => {
+export const UpdatePokedex = async (data) => {
     const response = await fetch(
     'http://localhost:4444/pokedex/update', {
     headers: {
@@ -20,7 +20,7 @@ export const UpdatePokedex = async (pokedex) => {
           'Content-Type': 'application/json'
         },
         method: "POST",
-         body: JSON.stringify(pokedex)
+         body: JSON.stringify(data)
     })    
     
     const pokemons = await response.json()

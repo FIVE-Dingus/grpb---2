@@ -1,32 +1,20 @@
-import { useForm } from 'react-hook-form';
+import { UpdatePokedex } from "../api/GetPokedex";
+import { useForm } from "react-hook-form";
 
-export function App() {
+export function PokedexUpdate() {
+    
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
-      console.log(data);
-      const response = fetch(
-        'http://localhost:4444/Pokemon/insert', {
-                headers: {
-                  'Accept': 'application/json',
-                  'Content-Type': 'application/json'
-                },
-                method: "POST",
-                body: JSON.stringify(data)
-            })
-            .then(function(res){ console.log(res) })
-            .catch(function(res){ console.log(res) })
-    
-    
-    const pokemons = response.json()
-    return pokemons
+        console.log(data);
+        UpdatePokedex(data);
     }
-  
+    
     return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input {...register("newname")} placeholder="newname" />
+        <form onSubmit={handleSubmit(onSubmit)}>
+        <input {...register("Newname")} placeholder="Newname" />
         <input {...register("type1")} placeholder="type1" />
-        <input {...register("type2")} placeholder="type2" />
+        <input {...register("firstName")} placeholder="type2" />
         <button type="submit">Valider</button>
-      </form>
+        </form>
     );
-  }
+    }

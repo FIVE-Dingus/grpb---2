@@ -18,9 +18,6 @@ function Pokeinfo() {
     },[]);
 
     const PokeCapture = (pokemon) => {
-        
-        
-        
         return Capture(pokemon)
     };
 
