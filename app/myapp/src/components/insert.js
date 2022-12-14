@@ -18,8 +18,10 @@ export function Creator12000() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <input {...register("name")} placeholder="Nom du Pokemon" />
         <input {...register("sprites")} placeholder="lien photo" />
-        <input {...register("type1")} placeholder="type 1" />
-        <input {...register("type2")} placeholder="type 2" />
+        <input type="hidden" {...register("type1.id")} placeholder="type1" defaultValue={null}/>
+        <input {...register("type1.name")} placeholder="type 1" />
+        <input type="hidden" {...register("type2.id")} placeholder="type2" defaultValue={null}/>
+        <input {...register("type2.name")} placeholder="type 2" />
         <button type="submit">Valider</button>
       </form>
     );

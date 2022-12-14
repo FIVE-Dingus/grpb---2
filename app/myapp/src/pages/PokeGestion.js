@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { DeletePokemon , DeletePokedex} from "../api/PokeDelete";
-import { PokedexUpdate } from "../components/update";
+import { PokedexUpdate } from "../components/Update";
 
 
 function PokeGestion() {
@@ -44,28 +44,12 @@ function PokeGestion() {
                         </Col>
                         <Col xs={8}>
                             <div className="flex"><h1>GESTION DE VOS POKEMON D'EXTREME QUALITE</h1>
-                            {
-                                pokedex.map((pokedex,key) =>{
-                                    return <div key={key} className="bloc-pokedex">
-                                        <Container>
-                                        <Row className="Pokeinfo">
-                                                <h2>{pokedex.name}</h2>
-                                                <Col xs={4} md={4} lg={4}>
-                                                <img className="normal" src={pokedex.sprites.normal} alt="sprite de {pokedex.name}"/>
-                                                </Col>
-                                                <Col xs={4} md={4} lg={4}>
                                                     <PokedexUpdate />
-                                                </Col>
-                                                <Col xs={4} md={4} lg={4}>
-                                                    <img className="animated" src={pokedex.sprites.animated} alt="sprite animé de {pokedex.name}"/>
-                                                    </Col>
-                                                </Row>
-                                            </Container>
+                                                
                                                 
                                         
-                                    </div>
-                                })
-                            }
+                                    
+                               
                             </div>
                         </Col>
                         <Col xs={2}>
